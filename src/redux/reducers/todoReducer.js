@@ -21,6 +21,7 @@ export function todoReducer(state=initialState, action){
                 ]
             }
         case TOGGLE_TODO:
+            console.log(state.todos);
             return {
                 ...state,
                 todos: state.todos.map((todo, i) => {

@@ -3,7 +3,7 @@ import TodoList from "./components/ToDoList/ToDoList";
 
 import './App.css';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { store } from './redux/store';
 
 import { Fragment } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
