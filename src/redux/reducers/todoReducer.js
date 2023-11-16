@@ -30,6 +30,7 @@ const todoSlice = createSlice({
     }
 });
 
+export const todoReducer = todoSlice.reducer;
 
 // create reducer using react-redux 
 

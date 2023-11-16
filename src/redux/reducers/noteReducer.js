@@ -26,6 +26,7 @@ const noteSlice = createSlice({
     }
 });
 
+export const noteReducer = noteSlice.reducer;
 
 // create reducer using react-redux
 
