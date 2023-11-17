@@ -1,6 +1,6 @@
 // import { toggleTodo } from "../../redux/actions/todoActions";
 import { useEffect } from "react";
-import { actions, todoSelector } from "../../redux/reducers/todoReducer";
+import { actions, getInitialStateAsyc, todoSelector } from "../../redux/reducers/todoReducer";
 import "./ToDoList.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -24,14 +24,16 @@ function ToDoList() {
 
 
     // 2.....
-    // manage API data using component....
-    // ....for manage API data using Redux-toolkit we have to shift this axios fetching in reduers file.....
-
+    // manage API data using component...
     // axios.get("http://localhost:4100/api/todos")
     //   .then(res => {
     //     console.log(res.data);
     //     dispatch(actions.setInitialState(res.data));
     //   })
+
+
+    // ....for manage API data using Redux-toolkit we have to shift this axios fetching in reduers file.....
+    dispatch(getInitialStateAsyc());
   }, []);
 
   return (
