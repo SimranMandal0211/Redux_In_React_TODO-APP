@@ -4,8 +4,8 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState ={
     notes: [
-        {text: 'Go to Gym at 6', createdOn: new Date()},
-        {text: 'Study at 8', createdOn: new Date()},
+        {text: 'Go to Gym at 6', createdOn: new Date().toDateString()},
+        {text: 'Study at 8', createdOn: new Date().toDateString()},
     ]
 };
 
@@ -17,7 +17,7 @@ const noteSlice = createSlice({
         add: (state, action) => {
             state.notes.push({
                 text: action.payload,
-                completed: false
+                createdOn: new Date().toDateString()
             })
         },
         delete: (state, action) => {
