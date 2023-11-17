@@ -25,6 +25,7 @@ function ToDoList() {
     axios.get("http://localhost:4100/api/todos")
       .then(res => {
         console.log(res.data);
+        dispatch(actions.setInitialState(res.data));
       })
   }, []);
 

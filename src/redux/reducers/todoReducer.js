@@ -3,8 +3,8 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
     todos: [
-        {text: "Go to Gym at 6", completed: false},
-        {text: "Study at 8", completed: true}
+        // {text: "Go to Gym at 6", completed: false},
+        // {text: "Study at 8", completed: true}
     ]
 };
 
@@ -13,6 +13,9 @@ const todoSlice = createSlice({
     name: 'todo',
     initialState: initialState,
     reducers: {
+        setInitialState: (state, action) => {
+            state.todos = action.payload;
+        },
         add: (state, action) => {
             state.todos.push({
                 text: action.payload,
