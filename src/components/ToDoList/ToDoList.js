@@ -1,4 +1,5 @@
 // import { toggleTodo } from "../../redux/actions/todoActions";
+import { useEffect } from "react";
 import { actions, todoSelector } from "../../redux/reducers/todoReducer";
 import "./ToDoList.css";
 
@@ -11,6 +12,14 @@ function ToDoList() {
   
   // //const todos = store.getState().todos;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch("http://localhost:4100/api/todos")
+    .then(res => res.json())
+      .then(parsedJson => {
+        console.log(parsedJson);
+      })
+  }, []);
 
   return (
     <div className="container">
