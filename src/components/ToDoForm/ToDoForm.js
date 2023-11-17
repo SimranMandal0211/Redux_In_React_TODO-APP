@@ -3,7 +3,7 @@ import "./ToDoForm.css";
 
 import { useDispatch, useSelector } from "react-redux";
 // import { addTodo } from "../../redux/actions/todoActions";
-import { actions } from "../../redux/reducers/todoReducer";
+import { actions, addTodoAsync } from "../../redux/reducers/todoReducer";
 import { notificationSelector, resetNotification } from "../../redux/reducers/notificationReducer";
 
 function ToDoForm() {
@@ -24,7 +24,10 @@ function ToDoForm() {
     e.preventDefault();
     setTodoText("");
     // dispatch(addTodo(todoText));
-    dispatch(actions.add(todoText));
+    // dispatch(actions.add(todoText));
+
+    // async
+    dispatch(addTodoAsync(todoText));
   };
 
   return (

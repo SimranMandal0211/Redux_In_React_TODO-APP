@@ -31,7 +31,22 @@ export const getInitialStateAsyc = createAsyncThunk('todo/getInitialState',
         return axios.get('http://localhost:100/api/todos');
     }
 
-)
+);
+
+export const addTodoAsync = createAsyncThunk("todo/addTodo", async(payload)=> {
+    const response = await fetch("http://localhost:4100/api/todos", {
+        method: 'POST',
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+            text: payload,
+            completed: false
+        })
+    });
+
+    return response.json(); //returning a promise
+})
 
 
 // Creating Reducer using Redux toolit
@@ -39,9 +54,10 @@ const todoSlice = createSlice({
     name: 'todo',
     initialState: initialState,
     reducers: {
-        setInitialState: (state, action) => {
-            state.todos = [...action.payload];
-        },
+        // bcoz we are using extraReducer for this now
+        // setInitialState: (state, action) => {
+        //     state.todos = [...action.payload];
+        // },
         add: (state, action) => {
             state.todos.push({
                 text: action.payload,
@@ -58,11 +74,15 @@ const todoSlice = createSlice({
         }
     },
 
-    extraReducers: () => {
+    extraReducers: (builder) => {
         builder.addCase(getInitialStateAsyc.fulfilled, (state, action) => {
             console.log('getInitialState is fulfiled');
             console.log(action.payload);
             state.todos = [...action.payload.data]
+        })
+        .addCase(addTodoAsync.fulfilled, (state, action) => {
+            console.log(action.payload);
+            state.todos.push(action.payload);
         })
     }
 });
