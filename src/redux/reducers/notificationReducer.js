@@ -15,7 +15,7 @@ const notificationSlice = createSlice({
         }
     },
 
-    // 1.... hardcoded name 
+    // 1.... hardcoded name (Don't use this) - just for understanding what's going behind the screen
     // extraReducers: {
     //     "todo/add" : (state, action) => {
     //             console.log('todo/add in notificationReducer');
@@ -27,12 +27,21 @@ const notificationSlice = createSlice({
     //     }
     // }
 
-    // 2.... updated prebuild extraReducer
-    extraReducers: (builder) => {
-        builder.addCase(actions.add, (state, action) => {
+    // 2.... updated prebuild extraReducer (use this)
+    // extraReducers: (builder) => {
+    //     builder.addCase(actions.add, (state, action) => {
+    //         state.message = "Todo is created";
+    //     })
+    // }
+
+    // 3...
+    extraReducers: {
+        // map objects: [key]: value
+        [actions.add]: (state, action) => {
             state.message = "Todo is created";
-        })
+        }
     }
+
 });
 
 export const notificationReducer = notificationSlice.reducer;
