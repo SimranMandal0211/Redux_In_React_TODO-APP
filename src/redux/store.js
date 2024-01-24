@@ -14,7 +14,7 @@ export const store = configureStore({
         noteReducer,
         notificationReducer
     },
-    middleware: [...getDefaultMiddleware, loggerMiddleware]
+    middleware: [...getDefaultMiddleware(), loggerMiddleware]
 })
 
 // const result = combineReducers({

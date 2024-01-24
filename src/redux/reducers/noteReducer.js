@@ -26,6 +26,7 @@ const noteSlice = createSlice({
     }
 });
 
+// action
 export const noteReducer = noteSlice.reducer;
 export const actions = noteSlice.actions;
 

@@ -6,8 +6,8 @@ const { createSlice, createAsyncThunk, thunkAPI } = require("@reduxjs/toolkit");
 
 const initialState = {
     todos: [
-        // {text: "Go to Gym at 6", completed: false},
-        // {text: "Study at 8", completed: true}
+        {text: "Go to Gym at 6", completed: false},
+        {text: "Study at 8", completed: true}
     ]
 };
 
