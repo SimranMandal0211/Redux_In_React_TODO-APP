@@ -12,7 +12,7 @@ const initialState = {
 };
 
 
-export const getInitialStateAsyc = createAsyncThunk('todo/getInitialState', 
+export const getInitialStateAsync = createAsyncThunk('todo/getInitialState', 
 // async(_, thunkAPI) => {
 //     try{
 //         const res = await axios.get("http://localhost:4100/api/todos")
@@ -27,8 +27,11 @@ export const getInitialStateAsyc = createAsyncThunk('todo/getInitialState',
 
 // -------------------------------------------------
 // OR another method of doing this using extraReducer
-    () => {
-        return axios.get('http://localhost:100/api/todos');
+    async () => {
+        // return axios.get('http://localhost:4100/api/todos');
+
+        const response = await axios.get('http://localhost:4100/api/todos');
+        return response.data;
     }
 
 );
@@ -65,20 +68,25 @@ const todoSlice = createSlice({
             })
         },
         toggle: (state, action) => {
-            state.todos.map((todo, i) => {
-                if(i === action.payload){
-                    todo.completed = !todo.completed;
-                }
-                return todo;
-            })
+            // state.todos.map((todo, i) => {
+            //     if(i === action.payload){
+            //         todo.completed = !todo.completed;
+            //     }
+            //     return todo;
+            // })
+            const todo = state.todos[action.payload];
+            if(todo){
+                todo.completed = !todo.completed;
+            }
         }
     },
 
     extraReducers: (builder) => {
-        builder.addCase(getInitialStateAsyc.fulfilled, (state, action) => {
+        builder.addCase(getInitialStateAsync.fulfilled, (state, action) => {
             console.log('getInitialState is fulfiled');
             console.log(action.payload);
-            state.todos = [...action.payload.data]
+            // state.todos = [...action.payload.data]
+            state.todos = action.payload;
         })
         .addCase(addTodoAsync.fulfilled, (state, action) => {
             console.log(action.payload);
