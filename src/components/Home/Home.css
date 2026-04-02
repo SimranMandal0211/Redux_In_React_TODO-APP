@@ -8,6 +8,24 @@
     align-items: center;
 }
 
+.home-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #e0e0e0;
+}
+
+.home-nav .nav-btn{
+    padding: 0 .5rem;
+    border: none;
+    color: black;
+    background-color: #e0e0e0;
+    text-decoration: none;
+}
+
+
+
 .link{
     display: flex !important;
     font-size: x-large !important; 

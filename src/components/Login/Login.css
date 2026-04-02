@@ -1,0 +1,36 @@
+.auth-container{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    height: 100vh;
+    /* width: 100vw; */
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: .5rem;
+    padding: 2rem;
+    height: 50vh;
+}
+
+.login-form button{
+    border: none;
+    background-color: #ffc107;
+    padding: .2rem;
+    
+}
+
+.sign-up-link{
+    text-decoration: none;
+    color: blue;
+    padding-left: .2rem;
+}
+.sign-up-link:hover{
+    cursor: pointer;
+    color: darkblue;
+}

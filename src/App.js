@@ -12,6 +12,10 @@ import NoteList from './components/NoteList/NoteList';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 
+import Signup from './components/SignUp/SignUp';
+import Login from './components/Login/Login';
+
+
 function App() {
 
   return (
@@ -20,6 +24,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="" element={<Home />}></Route>
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+
             <Route path="todo"
               element={
                 <Fragment>
